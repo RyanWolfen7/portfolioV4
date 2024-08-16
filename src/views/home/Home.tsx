@@ -11,7 +11,8 @@ interface Home {
 }
 
 const Home = ({ html, query }: Home) => {
-    console.log(query)
+    const { selected } = query
+
     return html(
         <BaseHtml>
             <body class="bg-main-900 leading-relaxed text-secondary-400 antialiased selection:bg-accent-300 selection:text-accent-900">
@@ -24,13 +25,24 @@ const Home = ({ html, query }: Home) => {
                             <div class="lg:flex lg:justify-between lg:gap-4 lg:min-h-screen">
                                 <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
                                     <ProfileCard>
-                                        <HomeNav items={['about', '2', '4', '5']} />
+                                        <nav
+                                            id='nav'
+                                            class="nav hidden lg:block" 
+                                            aria-label="In-page jump links"
+                                            hx-post={`/nav/${selected}`}
+                                            hx-swap="innerHTML"
+                                            hx-trigger="load"
+                                        />
                                     </ProfileCard>
                                     <SocialMedia list={[{}, {}, {}]} />
                                 </header>
-                                <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
-                                    <AboutMe />
-                                </main>
+                                <main 
+                                    id="content" 
+                                    class="pt-24 lg:w-1/2 lg:py-24"
+                                    hx-post={`/content/${selected}`}
+                                    hx-swap="innerHTML"
+                                    hx-trigger="load"
+                                />
                             </div>
                         </div>
                     </div>
