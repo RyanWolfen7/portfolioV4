@@ -1,5 +1,5 @@
 import * as elements from "typed-html";
-import CardSection from "../components/CardSection";
+import CardSection from "../../components/CardSection";
 
 interface AboutMe {
     selected: string

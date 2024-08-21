@@ -1,9 +1,8 @@
 import BaseHtml from "../BaseHtml"
 import * as elements from "typed-html";
 import ProfileCard from "../components/ProfileCard";
-import HomeNav from "./HomeNav";
+import HomeNav from "./nav/HomeNav";
 import SocialMedia from "../components/SocialMedia";
-import AboutMe from "./AboutMe";
 
 interface Home {
     html: Function,
