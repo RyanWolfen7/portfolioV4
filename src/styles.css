@@ -6,6 +6,14 @@ a {
     @apply cursor-pointer;
 }
 
+.leading-snug {
+    line-height: 1.375;
+}
+
+.tracking-wide {
+    letter-spacing: .025em;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
 

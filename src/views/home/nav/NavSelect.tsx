@@ -12,9 +12,9 @@ const NavSelect = async ({ params }: NavSelect) => {
     const tabs = [
       { target: 'about', selected: false },
       { target: 'experience', selected: false },
-      { target: 'skills', selected: false },
       { target: 'certifications', selected: false },
-      { target: 'education', selected: false }
+      { target: 'projects', selected: false },
+      { target: 'testimonials', selected: false }
     ]
     const items = tabs.map(item => {
       if (item.target == params.selected) item.selected = true
