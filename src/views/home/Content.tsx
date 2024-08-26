@@ -12,7 +12,6 @@ interface Content {
 const Content = async ({ store }: Content) => {
   const sections = store.navTabs
   const selected = sections.find(x => x.selected == true) || { target: 'about' }
-  console.log('selected: ', selected)
   return (
     <div>
       {sections.map(section => <CardSection {...section} />)}

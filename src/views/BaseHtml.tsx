@@ -10,6 +10,7 @@ const BaseHtml = ({ children }: elements.Children) => `
   <title> Ryan Clark's Portfolio V4 </title>
   <script src="https://unpkg.com/htmx.org@1.9.3"></script>
   <script src="https://unpkg.com/hyperscript.org@0.9.9"></script>
+  <script src="https://unpkg.com/idiomorph/dist/idiomorph-ext.min.js"></script>
   <link href="/styles.css" rel="stylesheet">
 </head>
 

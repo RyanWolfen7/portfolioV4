@@ -8,41 +8,40 @@ import Content from "./views/home/Content";
 import navTabs from "./models/navTabs";
 import Experience from "./views/home/content/Experience";
 import jobsJSON from './libs/Experience.json'
-import ExperienceCard from "./views/components/ExperienceCard";
-import CardSection from "./views/components/CardSection";
+import { ExperienceType } from "./types/Content";
 
 const app = new Elysia()
   .use(html())
   .get("/", Home)
   .state('navTabs', navTabs)
+  .state('navTabLoadCounter', 0)
+  .state('initialLoad', false)
   .post("/nav/:selected", NavSelect)
   .get("/content", Content)
   .get("/content/:name", ({ params, store }) => {
+    console.log('Initial Load: ', store.initialLoad, "\nSection: ", params.name)
+    const defaultSelected = { target: params.name , selected: false }
     const tabs = store.navTabs
-    const updatedTabs = tabs.map(x => { 
-      x.selected = x.target == params.name 
-      return x
-    })
-    store = { ...store, navTabs: updatedTabs }
-    const { selected } = updatedTabs.find(x => x.target == params.name) || { selected: false }
-    console.log("Selected: ", selected, "\nSection: ", params.name, '\nStore: ', store)
-    // console.log(params.name)
+    let currentSelected = tabs.find(x => x.target == params.name) || defaultSelected
+    if(store.initialLoad) {
+      const updatedTabs = tabs.map(tab => { 
+        tab.selected = tab.target == params.name 
+        return tab
+      })
+      store = { ...store, navTabs: updatedTabs }
+      currentSelected = updatedTabs.find(x => x.target == params.name) || defaultSelected
+    }
+    if(store.navTabLoadCounter == tabs.length - 1) store.initialLoad = true
+    if(!store.initialLoad) store.navTabLoadCounter++
     switch(params.name) {
       case "about": 
-        return <AboutMe selected={selected}/>
+        return <AboutMe selected={currentSelected.selected}/>
       case "experience":
-        return <Experience selected={selected}/>
+        const jobs: ExperienceType[] = jobsJSON
+        return <Experience selected={currentSelected.selected} jobs={jobs}/>
       default:
         return "" 
     }
-  })
-  .get('/content/experience/jobs', () => {
-    const jobs = jobsJSON
-    return (
-      <ol class="group/list">
-        { jobs.map(job => <ExperienceCard {...job}/> ) }
-      </ol>
-    )
   })
   .get("/styles.css", () => Bun.file("./tailwind-gen/styles.css"))
   .listen(3000);

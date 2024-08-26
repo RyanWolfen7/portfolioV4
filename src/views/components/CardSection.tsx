@@ -21,9 +21,9 @@ const CardSection = ({
             <div
                 id={target + '-body'}
                 hx-get={`/content/${target}`}
-                hx-trigger={`intersect twice threshold:0.1`}
-                hx-swap="innerHTML"
-            />
+                hx-trigger={`intersect threshold:0.25`}
+                hx-swap="merge:innerHTML"
+                hx-target="this"/>
         </section>
     )
 }

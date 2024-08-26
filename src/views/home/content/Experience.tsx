@@ -5,17 +5,16 @@ import { ExperienceType } from "../../../types/Content";
 import ExperienceCard from "../../components/ExperienceCard";
 
 interface Experience {
-    selected: boolean
+    selected: boolean,
+    jobs: ExperienceType[]
 }
 
-const Experience = ({ selected }: Experience) => {
+const Experience = ({ selected, jobs }: Experience) => {
     return (
         <div class={` ${selected ? 'text-secondary-200 opacity-100' : 'text-accent-100 opacity-10'}`}>
-            <div
-                 hx-get={`/content/experience/jobs`}
-                 hx-trigger="load"
-                 hx-swap="innerHTML"
-            />
+            <ol class="group/list">
+                { jobs.map(job => <ExperienceCard {...job}/>) }
+            </ol>
             <div class="mt-12">
                 <a
                     class="inline-flex items-baseline leading-tight hover:text-accent-300 focus-visible:text-accent-300 font-semibold text-secondary-200 text-base"
