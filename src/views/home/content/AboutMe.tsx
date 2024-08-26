@@ -1,14 +1,7 @@
 import * as elements from "typed-html";
-import CardSection from "../../components/CardSection";
 
-interface AboutMe {
-    selected: string
-}
-
-const AboutMe = ({ selected }: AboutMe) => {
-    const isSelected: boolean = selected == 'about'
+const AboutMe = () => {
     return (
-        <CardSection section="about" selected={isSelected}>
             <div>
                 <p class="mb-4">
                     I’m a US Army veteran with 8 years of experience as a full-stack developer specializing in cloud technologies, video-on-demand (VOD) systems, and payment processing.
@@ -57,7 +50,6 @@ const AboutMe = ({ selected }: AboutMe) => {
                     I have so many interests and hobbies, but so little time. Chances are I am familiar with whatever your slice of life is and if not I'd like to be.
                 </p>
             </div>
-        </CardSection>
     )
 }
 

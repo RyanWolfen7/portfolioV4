@@ -1,25 +1,24 @@
 import * as elements from "typed-html";
 import HomeNav from "./HomeNav";
+import { NavTabTypes } from "../../../models/navTabs";
 
 interface NavSelect {
    params: {
         selected: string
+   },
+   store: {
+      navTabs: NavTabTypes[]
    }
 }
 
-const NavSelect = async ({ params }: NavSelect) => {
-    console.log('Nav: ', params.selected)
-    const tabs = [
-      { target: 'about', selected: false },
-      { target: 'experience', selected: false },
-      { target: 'certifications', selected: false },
-      { target: 'projects', selected: false },
-      { target: 'testimonials', selected: false }
-    ]
+const NavSelect = async ({ store , params }: NavSelect) => {
+    const tabs = store.navTabs
     const items = tabs.map(item => {
-      if (item.target == params.selected) item.selected = true
+      item.selected = item.target == params.selected
       return item
     })
+    store = {...store, navTabs: items}
+    console.log("Store:\n", store)
     return <HomeNav items={items}/>
   }
 

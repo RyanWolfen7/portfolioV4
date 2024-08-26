@@ -38,8 +38,8 @@ const Home = ({ html, query }: Home) => {
                             <main
                                 id="content"
                                 class="pt-24 lg:w-1/2 lg:py-24"
-                                hx-post={`/content/${selected}`}
-                                hx-swap="innerHTML"
+                                hx-get={`/content`}
+                                hx-swap={`innerHTML scroll:#${selected}:top`}
                                 hx-trigger="load"
                             />
                         </div>

@@ -8,17 +8,14 @@ interface Experience {
     selected: string
 }
 
-const Experience = ({ selected }: Experience) => {
-     const isSelected: boolean = selected == 'experience'
-     const jobs: ExperienceType[] = jobsJSON
-     console.log('Jobs;\n', jobs[0])
+const Experience = () => {
     return (
-        <CardSection section="experience" selected={isSelected}>
-            <div>
-                <ol class="group/list">
-                    { jobs.map(job => <ExperienceCard {...job } /> ) }
-                </ol>
-            </div>
+        <div>
+            <div
+                 hx-get={`/content/experience/jobs`}
+                 hx-trigger="load"
+                 hx-swap="innerHTML"
+            />
             <div class="mt-12">
                 <a
                     class="inline-flex items-baseline leading-tight hover:text-accent-300 focus-visible:text-accent-300 font-semibold text-secondary-200 text-base"
@@ -35,7 +32,7 @@ const Experience = ({ selected }: Experience) => {
                     </span>
                 </a>
             </div>
-        </CardSection>
+        </div>
     )
 }
 
