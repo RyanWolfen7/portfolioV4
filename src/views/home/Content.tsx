@@ -11,10 +11,11 @@ interface Content {
 }
 const Content = async ({ store }: Content) => {
   const sections = store.navTabs
-  console.log(sections)
+  const selected = sections.find(x => x.selected == true) || { target: 'about' }
+  console.log('selected: ', selected)
   return (
     <div>
-      { sections.map(section => <CardSection {...section} />)}
+      {sections.map(section => <CardSection {...section} />)}
       {/* <AboutMe selected={selected} />
       <Experience selected={selected} /> */}
     </div>

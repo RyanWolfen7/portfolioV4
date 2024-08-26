@@ -16,7 +16,7 @@ const ProfileCard = ({
     children
 }: ProfileCard) => {
     return (
-    <div>
+    <div id="Header">
         <h1 class="text-4xl font-bold tracking-tight text-secondary-200 sm:text-5xl">
             <a href="/"> {name} </a>
         </h1>

@@ -9,6 +9,7 @@ import navTabs from "./models/navTabs";
 import Experience from "./views/home/content/Experience";
 import jobsJSON from './libs/Experience.json'
 import ExperienceCard from "./views/components/ExperienceCard";
+import CardSection from "./views/components/CardSection";
 
 const app = new Elysia()
   .use(html())
@@ -16,12 +17,21 @@ const app = new Elysia()
   .state('navTabs', navTabs)
   .post("/nav/:selected", NavSelect)
   .get("/content", Content)
-  .get("/content/:name", ({ params }) => {
+  .get("/content/:name", ({ params, store }) => {
+    const tabs = store.navTabs
+    const updatedTabs = tabs.map(x => { 
+      x.selected = x.target == params.name 
+      return x
+    })
+    store = { ...store, navTabs: updatedTabs }
+    const { selected } = updatedTabs.find(x => x.target == params.name) || { selected: false }
+    console.log("Selected: ", selected, "\nSection: ", params.name, '\nStore: ', store)
+    // console.log(params.name)
     switch(params.name) {
       case "about": 
-        return <AboutMe />
+        return <AboutMe selected={selected}/>
       case "experience":
-        return <Experience />
+        return <Experience selected={selected}/>
       default:
         return "" 
     }

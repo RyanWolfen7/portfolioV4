@@ -5,12 +5,12 @@ import { ExperienceType } from "../../../types/Content";
 import ExperienceCard from "../../components/ExperienceCard";
 
 interface Experience {
-    selected: string
+    selected: boolean
 }
 
-const Experience = () => {
+const Experience = ({ selected }: Experience) => {
     return (
-        <div>
+        <div class={` ${selected ? 'text-secondary-200 opacity-100' : 'text-accent-100 opacity-10'}`}>
             <div
                  hx-get={`/content/experience/jobs`}
                  hx-trigger="load"

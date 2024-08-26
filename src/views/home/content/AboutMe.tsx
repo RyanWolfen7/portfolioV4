@@ -1,8 +1,8 @@
 import * as elements from "typed-html";
 
-const AboutMe = () => {
+const AboutMe = ({ selected }: {selected: boolean}) => {
     return (
-            <div>
+            <div class={` ${selected ? 'text-secondary-200 opacity-100' : 'text-accent-100 opacity-10'}`}>
                 <p class="mb-4">
                     I’m a US Army veteran with 8 years of experience as a full-stack developer specializing in cloud technologies, video-on-demand (VOD) systems, and payment processing.
                     As a

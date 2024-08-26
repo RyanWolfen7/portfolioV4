@@ -18,7 +18,6 @@ const NavSelect = async ({ store , params }: NavSelect) => {
       return item
     })
     store = {...store, navTabs: items}
-    console.log("Store:\n", store)
     return <HomeNav items={items}/>
   }
 
