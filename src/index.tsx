@@ -19,7 +19,6 @@ const app = new Elysia()
   .post("/nav/:selected", NavSelect)
   .get("/content", Content)
   .get("/content/:name", ({ params, store }) => {
-    console.log('Initial Load: ', store.initialLoad, "\nSection: ", params.name)
     const defaultSelected = { target: params.name , selected: false }
     const tabs = store.navTabs
     let currentSelected = tabs.find(x => x.target == params.name) || defaultSelected
@@ -33,12 +32,14 @@ const app = new Elysia()
     }
     if(store.navTabLoadCounter == tabs.length - 1) store.initialLoad = true
     if(!store.initialLoad) store.navTabLoadCounter++
+    console.log("\n===== Content: ", params.name)
+
     switch(params.name) {
       case "about": 
-        return <AboutMe selected={currentSelected.selected}/>
+        return <AboutMe />
       case "experience":
         const jobs: ExperienceType[] = jobsJSON
-        return <Experience selected={currentSelected.selected} jobs={jobs}/>
+        return <Experience jobs={jobs}/>
       default:
         return "" 
     }

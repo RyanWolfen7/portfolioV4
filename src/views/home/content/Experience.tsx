@@ -5,13 +5,12 @@ import { ExperienceType } from "../../../types/Content";
 import ExperienceCard from "../../components/ExperienceCard";
 
 interface Experience {
-    selected: boolean,
     jobs: ExperienceType[]
 }
 
-const Experience = ({ selected, jobs }: Experience) => {
+const Experience = ({ jobs }: Experience) => {
     return (
-        <div class={` ${selected ? 'text-secondary-200 opacity-100' : 'text-accent-100 opacity-10'}`}>
+        <div>
             <ol class="group/list">
                 { jobs.map(job => <ExperienceCard {...job}/>) }
             </ol>
@@ -34,5 +33,5 @@ const Experience = ({ selected, jobs }: Experience) => {
         </div>
     )
 }
-
+// ${selected ? 'text-secondary-200 opacity-100' : 'text-accent-100 opacity-10'}
 export default Experience

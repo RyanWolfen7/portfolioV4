@@ -26,6 +26,7 @@ const ListItem = ({ target, selected }: ListItem) => {
     return (
         <li>
             <a 
+                id={`${target}-nav`}
                 class="group flex items-center py-3"
                 hx-post={`/nav/${target}`}
                 hx-trigger="click"

@@ -31,6 +31,8 @@ const Home = ({ html, query }: Home) => {
                                         hx-post={`/nav/${selected}`}
                                         hx-swap="innerHTML"
                                         hx-trigger="load"
+                                        hx-sync="this:abort"
+
                                     />
                                 </ProfileCard>
                                 <SocialMedia list={[{}, {}, {}]} />
@@ -40,7 +42,7 @@ const Home = ({ html, query }: Home) => {
                                 class="pt-24 lg:w-1/2 lg:py-24"
                                 hx-get={`/content`}
                                 hx-swap={`innerHTML scroll:#${selected}:top`}
-                                hx-trigger="load"
+                                hx-trigger="load once"
                             />
                         </div>
                     </div>
