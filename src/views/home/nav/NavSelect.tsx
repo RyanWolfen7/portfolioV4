@@ -1,40 +1,29 @@
 import * as elements from "typed-html";
 import HomeNav from "./HomeNav";
-import { NavTabTypes } from "../../../models/navTabs";
+import { NavStoreType } from "../../../types/Content";
 
 interface NavSelect {
    params: {
-        selected: string
+      target: string,
    },
-   store: {
-      navTabs: NavTabTypes[],
-      initialLoad: boolean
-   }
+   store: NavStoreType
 }
 
 const NavSelect = async ({ store , params }: NavSelect) => {
-    const defaultSelected = { target: params.selected , selected: false }
+  console.log('NAV HIT', params.target, store.initialLoad)
     const tabs = store.navTabs
-    // let currentSelected = tabs.find(x => x.target == params.selected) || defaultSelected
-    console.log("NAV HIT", params)
-
-    const items = tabs.map(item => {
-      item.selected = item.target == params.selected
-      return item
-    })
-  //   store = {...store, navTabs: items}
-  // const defaultSelected = { target: params.selected , selected: false }
-  //   const tabs = store.navTabs
-  //   console.log(tabs)
-  //   let currentSelected = tabs.find(x => x.target == params.selected) || defaultSelected
-  //   if(store.initialLoad) {
-  //     const updatedTabs = tabs.map(tab => { 
-  //       tab.selected = tab.target == params.selected 
-  //       return tab
-  //     })
-  //     store = { ...store, navTabs: updatedTabs }
-  //     currentSelected = updatedTabs.find(x => x.target == params.selected) || defaultSelected
-  //   }
+    if(store.initialLoad) {
+      const updatedTabs = tabs.map(tab => { 
+        tab.selected = tab.target == params.target 
+        return tab
+      })
+      store = { ...store, navTabs: updatedTabs }
+    }
+    
+    store.navTabLoadCounter == store.navTabs.length - 1  ? store.initialLoad = true : store.navTabLoadCounter++
+   
+    // const currentSelected = tabs.find(x => x.target == params.target)
+    // console.log("current Selected", currentSelected, '\n', currentSelected.selected)
     return <HomeNav items={tabs}/>
   }
 

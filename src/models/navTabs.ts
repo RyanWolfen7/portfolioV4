@@ -1,8 +1,3 @@
-export interface NavTabTypes {
-    target: string,
-    selected: boolean
-}
-
 const navTabs = [
     { target: 'about', selected: true },
     { target: 'experience', selected: false },

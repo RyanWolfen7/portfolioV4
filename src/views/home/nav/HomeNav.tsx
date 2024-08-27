@@ -22,11 +22,10 @@ interface ListItem {
 
 const ListItem = ({ target, selected }: ListItem) => {
     const text: String = target.toUpperCase()
-
     return (
         <li>
             <a 
-                id={`${target}-nav`}
+                id={`nav-${target}`}
                 class="group flex items-center py-3"
                 hx-post={`/nav/${target}`}
                 hx-trigger="click"

@@ -1,16 +1,25 @@
 import BaseHtml from "../BaseHtml"
 import * as elements from "typed-html";
 import ProfileCard from "../components/ProfileCard";
-import HomeNav from "./nav/HomeNav";
 import SocialMedia from "../components/SocialMedia";
+import { NavStoreType } from "../../types/Content";
+import navTabs from "../../models/navTabs";
 
 interface Home {
     html: Function,
-    query?: any
+    query?: any,
+    store: NavStoreType
 }
 
-const Home = ({ html, query }: Home) => {
+const Home = ({ html, query, store }: Home) => {
+    store.initialLoad = false
+    store.navTabLoadCounter = 0
+    store.navTabs = [
+        { target: 'about', selected: true },
+        { target: 'experience', selected: false }
+    ]
     const { selected = 'about' } = query
+    console.log("\n======= NEW FIRE =======\n\n\n", store)
 
     return html(
         <BaseHtml>
@@ -30,9 +39,8 @@ const Home = ({ html, query }: Home) => {
                                         aria-label="In-page jump links"
                                         hx-post={`/nav/${selected}`}
                                         hx-swap="innerHTML"
-                                        hx-trigger="load"
-                                        hx-sync="this:abort"
-
+                                        hx-trigger="load once"
+                                        
                                     />
                                 </ProfileCard>
                                 <SocialMedia list={[{}, {}, {}]} />

@@ -7,3 +7,14 @@ export interface ExperienceType {
     description?: string | undefined,
     tech?: string[] | undefined,
 }
+
+export interface NavTabTypes {
+    target: string,
+    selected: boolean
+}
+
+export interface NavStoreType {
+    navTabs: NavTabTypes[],
+    initialLoad: boolean,
+    navTabLoadCounter: number
+}
