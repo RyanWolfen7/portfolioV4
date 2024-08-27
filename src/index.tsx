@@ -17,6 +17,7 @@ const app = new Elysia()
   .post("/nav/:target", NavSelect)
   .get("/content", Content)
   .post("/content/:target", ContentSectionSelector)
+  .get("/resume", () => Bun.file("./public/ShortRyanClark.FullStack.2024.pdf"))
   .get("/styles.css", () => Bun.file("./tailwind-gen/styles.css"))
   .listen(3000);
 

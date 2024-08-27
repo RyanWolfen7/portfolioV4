@@ -16,16 +16,16 @@ const Experience = ({ jobs }: Experience) => {
             </ol>
             <div class="mt-12">
                 <a
-                    class="inline-flex items-baseline leading-tight hover:text-accent-300 focus-visible:text-accent-300 font-semibold text-secondary-200 text-base"
+                    class="inline-flex items-baseline leading-tight hover:text-accent-300 hover:min-w-full hover:bg-accent-100 focus-visible:text-accent-300 font-semibold text-secondary-200 text-base"
                     target="_blank"
                     rel="noreferrer noopener"
                     href="/resume"
                     aria-label="View Full Resume (opens in a new tab)"
                 >
                     <span>
-                        "View Full"
+                        View Full
                         <span class="inline-block">
-                            "Resume ^"
+                            Resume ^
                         </span>
                     </span>
                 </a>
