@@ -6,7 +6,7 @@ interface TechBadge {
 const TechBadge = ({ name }: TechBadge) => {
 
     return (
-        <li class="">
+        <li class="mr-1.5 mt-2">
             <div class="flex items-center rounded-full bg-accent-400/10 px-3 py-1 text-xs font-medium leading-5 text-accent-300 ">
                 {name}
             </div>
