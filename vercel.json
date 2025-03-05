@@ -2,7 +2,8 @@
     "version": 2,
     "builds": [
       {
-        "src": "api/*.tsx"
+        "src": "api/*.tsx",
+        "use": "@vercel/node"
       }
     ],
     "routes": [
