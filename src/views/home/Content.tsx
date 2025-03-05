@@ -1,7 +1,7 @@
 import * as elements from "typed-html";
 import AboutMe from "./content/AboutMe"
 import Experience from "./content/Experience";
-import { NavTabTypes } from "../../models/navTabs";
+import { NavTabTypes } from "../../types/Content";
 import CardSection from "../components/CardSection";
 
 interface Content {
