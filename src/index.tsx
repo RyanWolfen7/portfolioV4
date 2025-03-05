@@ -9,7 +9,7 @@ import navTabs from "./models/navTabs";
 import ContentSectionSelector from "./views/home/content/_ContentSectionSelector";
 
 const host = process.env.HOST || '0.0.0.0'; // Default to '0.0.0.0' for Vercel
-const port = parseInt(process.env.PORT || '3000', 10); // Use PORT environment variable or default to 3000
+const port = process.env.PORT || 3000; // Default to 3000
 
 const app = new Elysia()
   .use(html())
@@ -22,7 +22,7 @@ const app = new Elysia()
   .post("/content/:target", ContentSectionSelector)
   .get("/resume", () => Bun.file("./public/ShortRyanClark.FullStack.2024.pdf"))
   .get("/styles.css", () => Bun.file("./tailwind-gen/styles.css"))
-  .listen({ port, hostname: host });
+  .listen(port);
 
 console.log(
   `Your application is running at http://${app.server?.hostname}:${app.server?.port}`
