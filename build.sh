@@ -13,3 +13,5 @@ bun install
 
 # Build Tailwind CSS
 bun run tw
+
+mkdir -p dist
