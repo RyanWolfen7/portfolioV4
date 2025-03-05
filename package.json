@@ -6,8 +6,7 @@
         "dev": "concurrently \"bun run --watch src/index.tsx\" \"bun run tw:dev\"",
         "tw": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css",
         "tw:dev": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css --watch",
-        "test": "xss-scan",
-        "build": "bun run build.ts"
+        "test": "xss-scan"
     },
     "devDependencies": {
         "bun-types": "latest",
@@ -23,6 +22,7 @@
         "@kitajs/ts-html-plugin": "^4.0.2",
         "@libsql/client": "^0.3.3",
         "drizzle-orm": "^0.27.2",
-        "elysia": "^0.5.22"
+        "elysia": "^0.5.22",
+        "zod": "^3.24.2"
     }
 }
