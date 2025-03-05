@@ -15,4 +15,4 @@ bun install
 bun run tw
 
 # Run the development server
-bun run dev
+bun run src/index.tsx
