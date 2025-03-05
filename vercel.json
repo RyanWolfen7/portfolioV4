@@ -1,4 +1,10 @@
 {
     "$schema": "https://openapi.vercel.sh/vercel.json",
-    "buildCommand": "./build.sh"
+    "buildCommand": "bun run src/index.tsx",
+    "functions": {
+      "api/**/*.ts": {
+        "runtime": "nodejs14.x",
+        "includeFiles": "api/**/*.ts"
+      }
+    }
   }

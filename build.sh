@@ -8,7 +8,6 @@ then
     source ~/.bashrc
 fi
 
-chmod +x build.sh
 # Install dependencies
 bun install
 
