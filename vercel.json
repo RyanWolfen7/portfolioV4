@@ -2,8 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "api/*.tsx",
-        "use": "@vercel/bun"
+        "src": "api/*.tsx"
       }
     ],
     "routes": [
