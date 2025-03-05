@@ -1,5 +1,5 @@
 #!/bin/bash
-chmod +x build.sh
+
 # Install Bun if not already installed
 if ! command -v bun &> /dev/null
 then
@@ -14,5 +14,5 @@ bun install
 # Build Tailwind CSS
 bun run tw
 
-# Run the development server
+# Run the application
 bun run src/index.tsx

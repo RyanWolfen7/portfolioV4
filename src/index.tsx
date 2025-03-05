@@ -1,25 +1,31 @@
+import { Elysia } from "elysia";
 import { html } from "@elysiajs/html";
+import * as elements from "typed-html";
 import Home from "./views/home/Home";
 import NavSelect from "./views/home/nav/NavSelect";
 import Content from "./views/home/Content";
-import navTabs from "./libs/navTabs";
-import ContentSectionSelector from "./views/home/content/_ContentSectionSelector";
-import { createElysia } from "./util/elystia";
+import navTabs from "./models/navTabs";
 
-export const app = createElysia()
+import ContentSectionSelector from "./views/home/content/_ContentSectionSelector";
+
+const host = process.env.HOST || '0.0.0.0'; // Default to '0.0.0.0' for Vercel
+const port = process.env.PORT || 3000; // Default to 3000
+
+const app = new Elysia()
   .use(html())
   .state('navTabs', [...navTabs])
   .state('navTabLoadCounter', 0)
   .state('initialLoad', false)
-  .get('/', Home)
+  .get("/", Home)
   .post("/nav/:target", NavSelect)
   .get("/content", Content)
   .post("/content/:target", ContentSectionSelector)
   .get("/resume", () => Bun.file("./public/ShortRyanClark.FullStack.2024.pdf"))
   .get("/styles.css", () => Bun.file("./tailwind-gen/styles.css"))
-  .get('/health', (ctx) => 'ok');
+  .listen({ port, hostname: host });
 
-export type App = typeof app;
-export type AppContext = Parameters<App['listen']>[0];
-export type AppServer = ReturnType<App['listen']>;      
+console.log(
+  `Your application is running at http://${app.server?.hostname}:${app.server?.port}`
+);
+
 export default app;

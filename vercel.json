@@ -3,16 +3,13 @@
     "builds": [
       {
         "src": "build.sh",
-        "use": "@vercel/node",
-        "config": {
-          "distDir": "dist"
-        }
+        "use": "@vercel/static-build"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "dist/index.js"
+        "dest": "/index.tsx"
       }
     ]
   }
