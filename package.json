@@ -7,7 +7,7 @@
         "tw": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css",
         "tw:dev": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css --watch",
         "test": "xss-scan",
-        "build:vercel": "concurrently \"bun run src/index.tsx\" \"bun run tw\""
+        "build:vercel": "./build.sh"
     },
     "devDependencies": {
         "bun-types": "latest",
