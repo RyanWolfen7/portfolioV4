@@ -20,7 +20,7 @@ const NavSelect = async ({ store , params }: NavSelect) => {
       store = { ...store, navTabs: updatedTabs }
     }
     
-    store.navTabLoadCounter == store.navTabs.length - 1  ? store.initialLoad = true : store.navTabLoadCounter++
+    store.navTabLoadCounter == 1  ? store.initialLoad = true : store.navTabLoadCounter++
    
     // const currentSelected = tabs.find(x => x.target == params.target)
     // console.log("current Selected", currentSelected, '\n', currentSelected.selected)

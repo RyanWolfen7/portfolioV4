@@ -1,12 +1,10 @@
 import * as elements from "typed-html";
 import { ExperienceType } from "../../../types/Content";
 import ExperienceCard from "../../components/ExperienceCard";
+import jobsJSON from '../../../libs/Experience.json'
 
-interface Experience {
-    jobs: ExperienceType[]
-}
-
-const Experience = ({ jobs }: Experience) => {
+const Experience = () => {
+    const jobs: ExperienceType[] = jobsJSON
     return (
         <div>
             <ol class="group/list">

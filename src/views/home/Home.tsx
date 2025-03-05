@@ -16,7 +16,8 @@ const Home = ({ html, query, store }: Home) => {
     store.navTabLoadCounter = 0
     store.navTabs = [
         { target: 'about', selected: true },
-        { target: 'experience', selected: false }
+        { target: 'experience', selected: false },
+        { target: 'certifications', selected: false },
     ]
     const { selected = 'about' } = query
     console.log("\n======= NEW FIRE =======\n\n\n", store)

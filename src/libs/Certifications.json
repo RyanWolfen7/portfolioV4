@@ -1,0 +1,65 @@
+[
+    {
+        "certifier": "US Department of Defense",
+        "type": "Security Clearance",
+        "status": "Secrete",
+        "date": "2013",
+        "url": ""
+    },
+    {
+        "certifier": "Apollo",
+        "type": "Graph Developer",
+        "status": "Associate",
+        "date": "2023",
+        "url": ""
+    },
+    {
+        "certifier": "Apollo",
+        "type": "Graph Developer",
+        "status": "Associate",
+        "date": "2023",
+        "url": ""
+    },
+    {
+        "certifier": "Scrum Alliance",
+        "type": "Scrum Master",
+        "status": "CSM",
+        "date": "2020",
+        "url": ""
+    },
+    {
+        "certifier": "United States Army",
+        "type": "Jungle Operations Training Center",
+        "status": "Jungle Expert",
+        "date": "2014",
+        "url": ""
+    },
+    {
+        "certifier": "United States Army",
+        "type": "Certificate of Promotion",
+        "status": "Specialist",
+        "date": "2014",
+        "url": ""
+    },
+    {
+        "certifier": "United States Army",
+        "type": "Army Achievment Medal",
+        "status": "Awarded",
+        "date": "2013",
+        "url": ""
+    },
+    {
+        "certifier": "United States Army",
+        "type": "Army Achievment Medal",
+        "status": "Awarded",
+        "date": "2013",
+        "url": ""
+    },
+    {
+        "certifier": "Philippines Army",
+        "type": "Certificate of Appreciation",
+        "status": "Awarded",
+        "date": "2015",
+        "url": ""
+    }
+]

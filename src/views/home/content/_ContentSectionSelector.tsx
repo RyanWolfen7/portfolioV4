@@ -1,8 +1,8 @@
 import * as elements from "typed-html";
 import AboutMe from "./AboutMe";
 import Experience from "./Experience";
-import jobsJSON from '../../../libs/Experience.json'
 import { ExperienceType, NavStoreType } from "../../../types/Content";
+import Certifications from "./Certifications";
 
 interface ContentSectionSelector {
    params: {
@@ -11,16 +11,14 @@ interface ContentSectionSelector {
    store: NavStoreType
 }
 
-const ContentSectionSelector = ({ params, store }: ContentSectionSelector) => {
-    console.log("Content Hit", params.target)
-    // const currentSelected = store.navTabs.find(x => x.target == params.target)
-    // console.log("current Selected", currentSelected)
+const ContentSectionSelector = ({ params }: ContentSectionSelector) => {
     switch(params.target) {
       case "about": 
         return <AboutMe />
       case "experience":
-        const jobs: ExperienceType[] = jobsJSON
-        return <Experience jobs={jobs} />
+        return <Experience />
+      case "certifications":
+        return <Certifications />
       default:
         return "" 
     }
