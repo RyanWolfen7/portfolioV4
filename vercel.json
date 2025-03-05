@@ -1,12 +1,8 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "build.sh",
-        "use": "@vercel/static-build"
-      }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "/" }
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "buildCommand": "bun run build:vercel",
+    "rewrites": [
+      { "source": "/public/:match*", "destination": "/:match*" },
+      { "source": "/(.*)", "destination": "/src" }
     ]
   }

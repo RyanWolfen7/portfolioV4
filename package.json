@@ -21,6 +21,7 @@
         "@elysiajs/html": "^0.5.2",
         "@kitajs/ts-html-plugin": "^4.0.2",
         "@libsql/client": "^0.3.3",
+        "caniuse-lite": "^1.0.30001702",
         "drizzle-orm": "^0.27.2",
         "elysia": "^0.5.22",
         "zod": "^3.24.2"
