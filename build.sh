@@ -15,3 +15,6 @@ bun install
 bun run tw
 
 mkdir -p dist
+cp -r src/* dist/
+cp -r tailwind-gen/ dist/tailwind-gen/
+ 
