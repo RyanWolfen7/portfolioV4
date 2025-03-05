@@ -13,6 +13,3 @@ bun install
 
 # Build Tailwind CSS
 bun run tw
-
-# Run the application
-bun run src/index.tsx
